@@ -46,15 +46,15 @@ void loop() {
     // Flame detected
     if (servo.attached()) {
       // If the servo is attached, detach it
-      //servo.detach();
+      servo.detach();
       digitalWrite(RELE, RON);
-      servo.write(((millis() / 15) % 180)+20);
+      Serial.println("panni pore");
+      servo.write((millis() / 15) % 180);
       delay(1000);
-      servo.write(((millis() / 15) % 180)-40);
-      delay(1000);
+      
     }
     // Turn on the water pump through the relay
-    //digitalWrite(RELE, RON);  // Assuming RON is the state for turning on the relay
+    digitalWrite(RELE, RON);  // Assuming RON is the state for turning on the relay
   } else {
     // No flame detected
     if (!servo.attached()) {
